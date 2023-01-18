@@ -33,14 +33,13 @@ class SemObjetivos extends StatelessWidget {
                   child: Text(
                     "Que tal iniciar um agora mesmo?",
                     textAlign: TextAlign.center,
-                    style:
-                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 16.0),
                   ),
                 ),
               ],
             ),
             const SizedBox(
-              height: 16,
+              height: 6,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -49,8 +48,7 @@ class SemObjetivos extends StatelessWidget {
                   child: Text(
                     "Inicie seu primeiro objetivo através do botão (+)",
                     textAlign: TextAlign.center,
-                    style:
-                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 16.0),
                   ),
                 ),
               ],

@@ -67,6 +67,9 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(
+              height: 10,
+            ),
             TextField(
               controller: _nomeObjetivo,
               decoration: const InputDecoration(
@@ -105,10 +108,10 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
                 SizedBox(
                   width: 6.0,
                 ),
-                Expanded(
+                Flexible(
                   child: Text(
                     'O valor aumentará gradativamente a cada semana',
-                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 13),
                   ),
                 ),
               ],

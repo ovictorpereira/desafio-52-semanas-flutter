@@ -1,6 +1,5 @@
 import 'package:desafio_52_semanas/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_beep/flutter_beep.dart';
 import 'package:provider/provider.dart';
 
 import '../model/objetivos.dart';
@@ -60,7 +59,6 @@ class ItemDetalhes extends StatelessWidget {
             ),
             value: semana['realizado'],
             onChanged: (bool? v) {
-              FlutterBeep.beep();
               value.alteraSemanaRealizada(v, indexObjetivo, indexSemana);
             },
           ),

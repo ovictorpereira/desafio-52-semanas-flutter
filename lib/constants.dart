@@ -32,22 +32,22 @@ const kItemDetalheValorDesmarcado = TextStyle(
 
 const kItemDetalheDataMarcado = TextStyle(
   color: Colors.white,
-  fontSize: 11.0,
+  fontSize: 14.0,
 );
 
 const kItemDetalheDataDesmarcado = TextStyle(
   color: Colors.black54,
-  fontSize: 11.0,
+  fontSize: 14.0,
 );
 
 const kItemDetalheTituloMarcado = TextStyle(
   color: Colors.white,
   fontWeight: FontWeight.bold,
-  fontSize: 13.0,
+  fontSize: 15.0,
 );
 
 const kItemDetalheTituloDesmarcado = TextStyle(
   color: Colors.black54,
   fontWeight: FontWeight.bold,
-  fontSize: 13.0,
+  fontSize: 15.0,
 );

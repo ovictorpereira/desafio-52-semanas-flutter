@@ -4,8 +4,20 @@ import 'package:desafio_52_semanas/model/objetivos.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    final _store = Provider.of<ObjetivosModel>(context, listen: false);
+    _store.loadDb();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

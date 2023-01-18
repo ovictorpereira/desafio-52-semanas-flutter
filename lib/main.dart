@@ -4,10 +4,15 @@ import 'package:desafio_52_semanas/pages/home.dart';
 import 'package:desafio_52_semanas/pages/novo_objetivo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  var box = await Hive.openBox('database');
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => ObjetivosModel(),
@@ -30,6 +35,13 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('pt', 'BR'),
+      ],
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {

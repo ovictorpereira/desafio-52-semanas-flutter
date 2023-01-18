@@ -21,7 +21,7 @@ class ListaObjetivos extends StatelessWidget {
                 left: 16,
                 right: 16,
               ),
-              height: 120,
+              height: 130,
               decoration: const BoxDecoration(
                 color: Colors.blue,
                 borderRadius: BorderRadius.only(

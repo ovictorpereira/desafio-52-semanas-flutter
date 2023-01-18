@@ -19,10 +19,6 @@ class CardObjetivo extends StatelessWidget {
         child: InkWell(
           splashColor: Colors.blue.withAlpha(30),
           onTap: () {
-            debugPrint('Card tapped.');
-
-            // Navigator.pushNamed(context, '/detalhes');
-
             Navigator.pushNamed(
               context,
               '/detalhes',
@@ -30,8 +26,8 @@ class CardObjetivo extends StatelessWidget {
             );
           },
           child: Container(
-            padding: const EdgeInsets.all(16),
-            height: 140,
+            padding:
+                const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -44,7 +40,7 @@ class CardObjetivo extends StatelessWidget {
                         item['titulo'],
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                         ),
                       ),
                     ),
@@ -58,7 +54,8 @@ class CardObjetivo extends StatelessWidget {
                   height: 10,
                 ),
                 LinearProgressIndicator(
-                  minHeight: 6,
+                  color: Colors.green,
+                  minHeight: 10,
                   value: calculaPorcentagemDouble(item),
                 ),
                 const SizedBox(
@@ -67,7 +64,7 @@ class CardObjetivo extends StatelessWidget {
                 Text(
                   'R\$ ${calculaAndamento(item)} de ${item['total']}',
                   style: const TextStyle(
-                    fontSize: 12,
+                    fontSize: 15,
                   ),
                 ),
                 const SizedBox(
@@ -76,20 +73,37 @@ class CardObjetivo extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text('Início:'),
+                    const Text(
+                      'Início:',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
                     Text(
                       DateFormat('dd/MM/yyyy')
                           .format(item['semanas'][0]['data']),
+                      style: const TextStyle(
+                        fontSize: 15,
+                      ),
                     ),
                   ],
                 ),
+                const SizedBox(height: 4),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text('Término:'),
+                    const Text(
+                      'Término:',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
                     Text(
                       DateFormat('dd/MM/yyyy')
                           .format(item['semanas'][51]['data']),
+                      style: const TextStyle(
+                        fontSize: 15,
+                      ),
                     ),
                   ],
                 ),

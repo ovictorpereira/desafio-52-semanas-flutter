@@ -28,21 +28,20 @@ class ContainerTotalEconomizado extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 const Text(
-                  'Ao final desse desafio, você terá economizado',
-                  style: TextStyle(
-                    fontSize: 12.0,
-                  ),
+                  'Ao final, você terá economizado',
+                  style: TextStyle(fontSize: 12.0, color: Colors.white),
                 ),
                 const SizedBox(
                   height: 6,
                 ),
                 Text(
                   overflow: TextOverflow.ellipsis,
-                  total,
+                  'R\$ $total',
                   style: const TextStyle(
-                    fontSize: 30,
+                    fontSize: 26,
                     color: Colors.white,
                   ),
                 ),

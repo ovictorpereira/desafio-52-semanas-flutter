@@ -33,6 +33,7 @@ class _DetalhesState extends State<Detalhes> {
                 onSelected: (String v) {
                   if (v == 'excluir') {
                     value.excluiObjetivo(oIndex);
+                    Navigator.pop(context, 'excluir');
                   }
                 },
                 itemBuilder: (context) {
@@ -58,12 +59,12 @@ class _DetalhesState extends State<Detalhes> {
             children: [
               Container(
                 padding: const EdgeInsets.only(
-                    top: 0, left: 16, right: 30, bottom: 4),
-                height: 126,
+                    top: 16, left: 16, right: 30, bottom: 4),
+                height: 140,
                 decoration: const BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(40),
+                    bottomRight: Radius.circular(20),
                   ),
                 ),
                 child: Column(
@@ -82,7 +83,8 @@ class _DetalhesState extends State<Detalhes> {
                       children: [
                         Text(
                           calculaPorcentagemString(item),
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 15),
                         ),
                         const SizedBox(
                           width: 16,
@@ -90,7 +92,7 @@ class _DetalhesState extends State<Detalhes> {
                         Expanded(
                           child: LinearProgressIndicator(
                             color: Colors.yellow[200],
-                            minHeight: 6,
+                            minHeight: 12,
                             value: calculaPorcentagemDouble(item),
                           ),
                         ),
