@@ -1,3 +1,5 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:desafio_52_semanas/constants.dart';
 import 'package:desafio_52_semanas/model/objetivos.dart';
 import 'package:desafio_52_semanas/pages/detalhes.dart';
 import 'package:desafio_52_semanas/pages/home.dart';
@@ -13,6 +15,17 @@ void main() async {
   await Hive.initFlutter();
   var box = await Hive.openBox('database');
 
+  AwesomeNotifications().initialize(
+      null,
+      [
+        NotificationChannel(
+          channelKey: 'lembrete',
+          channelName: 'Lembrete Depositos',
+          channelDescription: 'Lembrete para realização do depósito semanal',
+        )
+      ],
+      debug: true);
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => ObjetivosModel(),
@@ -27,10 +40,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: Colors.blue),
+      const SystemUiOverlayStyle(statusBarColor: Colors.purple),
     );
     return MaterialApp(
       theme: ThemeData(
+        inputDecorationTheme: kInputDecoration,
+        appBarTheme: kAppBar,
         textTheme: GoogleFonts.quicksandTextTheme(
           Theme.of(context).textTheme,
         ),
@@ -40,6 +55,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: const [
+        Locale('en'),
         Locale('pt', 'BR'),
       ],
       debugShowCheckedModeBanner: false,

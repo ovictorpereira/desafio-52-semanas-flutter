@@ -17,7 +17,7 @@ class CardObjetivo extends StatelessWidget {
       child: Card(
         elevation: 2,
         child: InkWell(
-          splashColor: Colors.blue.withAlpha(30),
+          splashColor: Colors.purple.withAlpha(30),
           onTap: () {
             Navigator.pushNamed(
               context,
@@ -54,7 +54,8 @@ class CardObjetivo extends StatelessWidget {
                   height: 10,
                 ),
                 LinearProgressIndicator(
-                  color: Colors.green,
+                  backgroundColor: Colors.grey[200],
+                  color: Colors.purple,
                   minHeight: 10,
                   value: calculaPorcentagemDouble(item),
                 ),

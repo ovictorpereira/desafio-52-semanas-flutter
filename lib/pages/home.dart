@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:desafio_52_semanas/components/lista_objetivos.dart';
 import 'package:desafio_52_semanas/components/sem_objetivos.dart';
 import 'package:desafio_52_semanas/model/objetivos.dart';
@@ -16,6 +17,13 @@ class _HomeState extends State<Home> {
   void initState() {
     final _store = Provider.of<ObjetivosModel>(context, listen: false);
     _store.loadDb();
+
+    AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
+      if (!isAllowed) {
+        AwesomeNotifications().requestPermissionToSendNotifications();
+      }
+    });
+
     super.initState();
   }
 
@@ -35,10 +43,10 @@ class _HomeState extends State<Home> {
         onPressed: () {
           Navigator.pushNamed(context, '/novo_objetivo');
         },
-        backgroundColor: Colors.blue[600],
+        backgroundColor: const Color(0xFFf5a91f),
         child: const Icon(
           Icons.add,
-          color: Colors.white,
+          color: Colors.purple,
         ),
       ),
     );

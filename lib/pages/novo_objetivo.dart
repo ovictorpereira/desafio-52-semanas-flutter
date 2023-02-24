@@ -73,7 +73,6 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
             TextField(
               controller: _nomeObjetivo,
               decoration: const InputDecoration(
-                border: OutlineInputBorder(),
                 floatingLabelBehavior: FloatingLabelBehavior.auto,
                 labelText: 'Qual o nome do seu objetivo?',
                 hintText: 'Ex.: Viagem para Paris',
@@ -103,7 +102,7 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
               children: const [
                 Icon(
                   Icons.info,
-                  color: Colors.blue,
+                  color: Colors.purple,
                 ),
                 SizedBox(
                   width: 6.0,

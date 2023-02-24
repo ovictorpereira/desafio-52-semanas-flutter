@@ -12,14 +12,14 @@ class ContainerTotalEconomizado extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       height: 80,
       decoration: BoxDecoration(
-        color: Colors.blue[300],
+        color: Colors.purple,
         borderRadius: BorderRadius.circular(6),
       ),
       child: Row(
         children: [
           const Image(
             image: AssetImage(
-              'images/objetivo.png',
+              'images/objetivo2.png',
             ),
           ),
           const SizedBox(
@@ -42,7 +42,8 @@ class ContainerTotalEconomizado extends StatelessWidget {
                   'R\$ $total',
                   style: const TextStyle(
                     fontSize: 26,
-                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFf5a91f),
                   ),
                 ),
               ],

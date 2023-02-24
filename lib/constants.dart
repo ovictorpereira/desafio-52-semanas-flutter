@@ -1,5 +1,20 @@
 import 'package:flutter/material.dart';
 
+const kInputDecoration = InputDecorationTheme(
+  border: OutlineInputBorder(
+    borderSide: BorderSide(width: 2, color: Colors.purple),
+  ),
+  floatingLabelStyle: TextStyle(color: Colors.purple),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(width: 2, color: Colors.amberAccent),
+  ),
+);
+
+const kAppBar = AppBarTheme(
+  backgroundColor: Colors.purple,
+  iconTheme: IconThemeData(color: Color(0xFFf5a91f)),
+);
+
 const kTituloHome = TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.white,

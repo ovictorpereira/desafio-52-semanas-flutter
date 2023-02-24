@@ -23,7 +23,7 @@ class ListaObjetivos extends StatelessWidget {
               ),
               height: 130,
               decoration: const BoxDecoration(
-                color: Colors.blue,
+                color: Colors.purple,
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(20),
                 ),
@@ -43,7 +43,7 @@ class ListaObjetivos extends StatelessWidget {
                       index: i,
                     );
                   }),
-            )
+            ),
           ],
         );
       },

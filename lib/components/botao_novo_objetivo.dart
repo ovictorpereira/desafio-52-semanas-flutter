@@ -22,6 +22,7 @@ class NovoObjetivoBtn extends StatelessWidget {
     return Consumer<ObjetivosModel>(builder: (context, value, child) {
       return ElevatedButton(
         style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.purple,
           minimumSize: const Size.fromHeight(36),
         ),
         onPressed: nome == '' || data == ''

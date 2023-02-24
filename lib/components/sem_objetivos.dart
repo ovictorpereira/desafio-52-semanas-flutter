@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class SemObjetivos extends StatelessWidget {
   const SemObjetivos({Key? key}) : super(key: key);
@@ -11,6 +12,12 @@ class SemObjetivos extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Lottie.asset('images/animacao.json'),
+            // const Image(
+            //   image: AssetImage(
+            //     'images/home.png',
+            //   ),
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
@@ -18,7 +25,11 @@ class SemObjetivos extends StatelessWidget {
                   child: Text(
                     "Nenhum objetivo cadastrado até o momento.",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 24.0),
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      color: Colors.purple,
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
                 ),
               ],
@@ -26,6 +37,11 @@ class SemObjetivos extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
+            // const Image(
+            //   image: AssetImage(
+            //     'images/home.png',
+            //   ),
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [

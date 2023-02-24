@@ -62,7 +62,7 @@ class _DetalhesState extends State<Detalhes> {
                     top: 16, left: 16, right: 30, bottom: 4),
                 height: 140,
                 decoration: const BoxDecoration(
-                  color: Colors.blue,
+                  color: Colors.purple,
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(20),
                   ),
@@ -84,14 +84,15 @@ class _DetalhesState extends State<Detalhes> {
                         Text(
                           calculaPorcentagemString(item),
                           style: const TextStyle(
-                              color: Colors.white, fontSize: 15),
+                              color: Color(0xFFf5a91f), fontSize: 15),
                         ),
                         const SizedBox(
                           width: 16,
                         ),
                         Expanded(
                           child: LinearProgressIndicator(
-                            color: Colors.yellow[200],
+                            backgroundColor: Colors.grey[300],
+                            color: const Color(0xFFf5a91f),
                             minHeight: 12,
                             value: calculaPorcentagemDouble(item),
                           ),
@@ -108,7 +109,7 @@ class _DetalhesState extends State<Detalhes> {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: Color(0xFFf5a91f),
                           ),
                         ),
                         Text(
