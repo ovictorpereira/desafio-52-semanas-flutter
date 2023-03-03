@@ -15,6 +15,7 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
   late TextEditingController _nomeObjetivo;
   late TextEditingController _valorObjetivo;
   late TextEditingController _dataObjetivo;
+  late TextEditingController _horarioNotificacao;
 
   double totalProgressao = 0;
 
@@ -27,6 +28,7 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
     _valorObjetivo.text = '2';
 
     _dataObjetivo = TextEditingController();
+    _horarioNotificacao = TextEditingController();
     super.initState();
   }
 
@@ -58,6 +60,7 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text("Novo Objetivo"),
         elevation: 0,
@@ -137,8 +140,7 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
                 DateTime? pickedDate = await showDatePicker(
                     context: context,
                     initialDate: DateTime.now(),
-                    firstDate: DateTime(2022),
-                    //DateTime.now() - not to allow to choose before today.
+                    firstDate: DateTime.now(),
                     lastDate: DateTime(2100));
 
                 if (pickedDate != null) {
@@ -152,12 +154,46 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
               },
             ),
             const SizedBox(
+              height: 16.0,
+            ),
+            TextField(
+              controller: _horarioNotificacao,
+              readOnly: true,
+              decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.schedule),
+                floatingLabelBehavior: FloatingLabelBehavior.auto,
+                labelText: 'Qual o melhor horário para notificações?',
+              ),
+              onTap: () async {
+                TimeOfDay? pickedTime = await showTimePicker(
+                  context: context,
+                  initialTime: TimeOfDay.now(),
+                  builder: (context, child) {
+                    return MediaQuery(
+                      data: MediaQuery.of(context)
+                          .copyWith(alwaysUse24HourFormat: true),
+                      child: child ?? Container(),
+                    );
+                  },
+                );
+
+                if (pickedTime != null) {
+                  final hour = pickedTime.hour.toString().padLeft(2, "0");
+                  final min = pickedTime.minute.toString().padLeft(2, "0");
+                  setState(() {
+                    _horarioNotificacao.text = "$hour:$min";
+                  });
+                } else {}
+              },
+            ),
+            const SizedBox(
               height: 16,
             ),
             NovoObjetivoBtn(
               nome: _nomeObjetivo.text,
               valor: _valorObjetivo.text,
               data: _dataObjetivo.text,
+              horario: _horarioNotificacao.text,
             ),
           ],
         ),

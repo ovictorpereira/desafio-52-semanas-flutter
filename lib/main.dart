@@ -24,7 +24,7 @@ void main() async {
           channelDescription: 'Lembrete para realização do depósito semanal',
         )
       ],
-      debug: true);
+      debug: false);
 
   runApp(
     ChangeNotifierProvider(

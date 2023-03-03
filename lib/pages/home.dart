@@ -34,8 +34,8 @@ class _HomeState extends State<Home> {
       body: Consumer<ObjetivosModel>(
         builder: (context, value, child) {
           return value.objetivos.length == 0
-              ? SemObjetivos()
-              : ListaObjetivos();
+              ? const SemObjetivos()
+              : const ListaObjetivos();
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
