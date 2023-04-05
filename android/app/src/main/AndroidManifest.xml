@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ovictorpereira.desafio_52_semanas">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
    <application
         android:label="52 Semanas - Guarde Dinheiro"
         android:name="${applicationName}"
