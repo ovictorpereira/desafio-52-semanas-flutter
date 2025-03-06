@@ -7,7 +7,7 @@ import '../components/item_detalhes.dart';
 import '../utils.dart';
 
 class Detalhes extends StatefulWidget {
-  const Detalhes({Key? key}) : super(key: key);
+  const Detalhes({super.key});
 
   @override
   State<Detalhes> createState() => _DetalhesState();
@@ -16,8 +16,9 @@ class Detalhes extends StatefulWidget {
 class _DetalhesState extends State<Detalhes> {
   @override
   Widget build(BuildContext context) {
-    final arguments = (ModalRoute.of(context)?.settings.arguments ??
-        <String, dynamic>{}) as Map;
+    final arguments =
+        (ModalRoute.of(context)?.settings.arguments ?? <String, dynamic>{})
+            as Map;
 
     final oIndex = arguments['index'];
 
@@ -42,10 +43,7 @@ class _DetalhesState extends State<Detalhes> {
                       value: 'excluir',
                       child: Row(
                         children: const [
-                          Icon(
-                            Icons.delete,
-                            color: Colors.blue,
-                          ),
+                          Icon(Icons.delete, color: Colors.blue),
                           Text('Excluir objetivo'),
                         ],
                       ),
@@ -59,7 +57,11 @@ class _DetalhesState extends State<Detalhes> {
             children: [
               Container(
                 padding: const EdgeInsets.only(
-                    top: 16, left: 16, right: 30, bottom: 4),
+                  top: 16,
+                  left: 16,
+                  right: 30,
+                  bottom: 4,
+                ),
                 height: 140,
                 decoration: const BoxDecoration(
                   color: Colors.purple,
@@ -71,24 +73,19 @@ class _DetalhesState extends State<Detalhes> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Flexible(
-                      child: Text(
-                        item['titulo'],
-                        style: kTituloDetalhe,
-                      ),
+                      child: Text(item['titulo'], style: kTituloDetalhe),
                     ),
-                    const SizedBox(
-                      height: 10.0,
-                    ),
+                    const SizedBox(height: 10.0),
                     Row(
                       children: [
                         Text(
                           calculaPorcentagemString(item),
                           style: const TextStyle(
-                              color: Color(0xFFf5a91f), fontSize: 15),
+                            color: Color(0xFFf5a91f),
+                            fontSize: 15,
+                          ),
                         ),
-                        const SizedBox(
-                          width: 16,
-                        ),
+                        const SizedBox(width: 16),
                         Expanded(
                           child: LinearProgressIndicator(
                             backgroundColor: Colors.grey[300],
@@ -99,9 +96,7 @@ class _DetalhesState extends State<Detalhes> {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 6,
-                    ),
+                    const SizedBox(height: 6),
                     Row(
                       children: [
                         Text(

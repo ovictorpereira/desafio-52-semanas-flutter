@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ContainerTotalEconomizado extends StatelessWidget {
-  const ContainerTotalEconomizado({Key? key, required this.total})
-      : super(key: key);
+  const ContainerTotalEconomizado({super.key, required this.total});
 
   final String total;
 
@@ -17,14 +16,8 @@ class ContainerTotalEconomizado extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Image(
-            image: AssetImage(
-              'images/objetivo2.png',
-            ),
-          ),
-          const SizedBox(
-            width: 12,
-          ),
+          const Image(image: AssetImage('images/objetivo2.png')),
+          const SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,9 +27,7 @@ class ContainerTotalEconomizado extends StatelessWidget {
                   'Ao final, você terá economizado',
                   style: TextStyle(fontSize: 12.0, color: Colors.white),
                 ),
-                const SizedBox(
-                  height: 6,
-                ),
+                const SizedBox(height: 6),
                 Text(
                   overflow: TextOverflow.ellipsis,
                   'R\$ $total',

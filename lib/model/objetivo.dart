@@ -20,7 +20,7 @@ class Objetivo {
     for (int i = 0; i < 52; i++) {
       soma = soma + progressao;
 
-      DateTime dia = Jiffy(inicio).add(weeks: i).dateTime;
+      DateTime dia = Jiffy.parseFromDateTime(inicio).add(weeks: i).dateTime;
       Map<String, dynamic> item = {
         'data': dia,
         'realizado': false,

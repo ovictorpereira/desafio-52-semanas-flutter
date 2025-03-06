@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 class NovoObjetivo extends StatefulWidget {
-  const NovoObjetivo({Key? key}) : super(key: key);
+  const NovoObjetivo({super.key});
 
   @override
   State<NovoObjetivo> createState() => _NovoObjetivoState();
@@ -61,18 +61,13 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text("Novo Objetivo"),
-        elevation: 0,
-      ),
+      appBar: AppBar(title: const Text("Novo Objetivo"), elevation: 0),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             TextField(
               controller: _nomeObjetivo,
               decoration: const InputDecoration(
@@ -81,13 +76,12 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
                 hintText: 'Ex.: Viagem para Paris',
               ),
             ),
-            const SizedBox(
-              height: 20.0,
-            ),
+            const SizedBox(height: 20.0),
             TextField(
               controller: _valorObjetivo,
-              keyboardType:
-                  const TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
               inputFormatters: [
                 FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
               ],
@@ -98,18 +92,11 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
                 labelText: 'Qual o valor incial?',
               ),
             ),
-            const SizedBox(
-              height: 10.0,
-            ),
+            const SizedBox(height: 10.0),
             Row(
               children: const [
-                Icon(
-                  Icons.info,
-                  color: Colors.purple,
-                ),
-                SizedBox(
-                  width: 6.0,
-                ),
+                Icon(Icons.info, color: Colors.purple),
+                SizedBox(width: 6.0),
                 Flexible(
                   child: Text(
                     'O valor aumentará gradativamente a cada semana',
@@ -118,15 +105,11 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             ContainerTotalEconomizado(
               total: formataMoeda.format(totalProgressao),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             TextField(
               controller: _dataObjetivo,
               readOnly: true,
@@ -138,14 +121,16 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
               ),
               onTap: () async {
                 DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime.now(),
-                    lastDate: DateTime(2100));
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime.now(),
+                  lastDate: DateTime(2100),
+                );
 
                 if (pickedDate != null) {
-                  String formattedDate =
-                      DateFormat('dd/MM/yyyy').format(pickedDate);
+                  String formattedDate = DateFormat(
+                    'dd/MM/yyyy',
+                  ).format(pickedDate);
                   setState(() {
                     _dataObjetivo.text =
                         formattedDate; //set output date to TextField value.
@@ -153,9 +138,7 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
                 } else {}
               },
             ),
-            const SizedBox(
-              height: 16.0,
-            ),
+            const SizedBox(height: 16.0),
             TextField(
               controller: _horarioNotificacao,
               readOnly: true,
@@ -170,8 +153,9 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
                   initialTime: TimeOfDay.now(),
                   builder: (context, child) {
                     return MediaQuery(
-                      data: MediaQuery.of(context)
-                          .copyWith(alwaysUse24HourFormat: true),
+                      data: MediaQuery.of(
+                        context,
+                      ).copyWith(alwaysUse24HourFormat: true),
                       child: child ?? Container(),
                     );
                   },
@@ -186,9 +170,7 @@ class _NovoObjetivoState extends State<NovoObjetivo> {
                 } else {}
               },
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             NovoObjetivoBtn(
               nome: _nomeObjetivo.text,
               valor: _valorObjetivo.text,

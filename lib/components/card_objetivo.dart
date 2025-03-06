@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class CardObjetivo extends StatelessWidget {
-  const CardObjetivo({Key? key, required this.item, required this.index})
-      : super(key: key);
+  const CardObjetivo({super.key, required this.item, required this.index});
 
   final Map item;
   final int index;
@@ -26,8 +25,12 @@ class CardObjetivo extends StatelessWidget {
             );
           },
           child: Container(
-            padding:
-                const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 16),
+            padding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 16,
+              bottom: 16,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -39,53 +42,34 @@ class CardObjetivo extends StatelessWidget {
                       child: Text(
                         item['titulo'],
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 16,
-                        ),
+                        style: const TextStyle(fontSize: 16),
                       ),
                     ),
-                    Text(
-                      'R\$ ${item['total']}',
-                      style: kTotal,
-                    ),
+                    Text('R\$ ${item['total']}', style: kTotal),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 LinearProgressIndicator(
                   backgroundColor: Colors.grey[200],
                   color: Colors.purple,
                   minHeight: 10,
                   value: calculaPorcentagemDouble(item),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 Text(
                   'R\$ ${calculaAndamento(item)} de ${item['total']}',
-                  style: const TextStyle(
-                    fontSize: 15,
-                  ),
+                  style: const TextStyle(fontSize: 15),
                 ),
-                const SizedBox(
-                  height: 6,
-                ),
+                const SizedBox(height: 6),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Início:',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
+                    const Text('Início:', style: TextStyle(fontSize: 15)),
                     Text(
-                      DateFormat('dd/MM/yyyy')
-                          .format(item['semanas'][0]['data']),
-                      style: const TextStyle(
-                        fontSize: 15,
-                      ),
+                      DateFormat(
+                        'dd/MM/yyyy',
+                      ).format(item['semanas'][0]['data']),
+                      style: const TextStyle(fontSize: 15),
                     ),
                   ],
                 ),
@@ -93,18 +77,12 @@ class CardObjetivo extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Término:',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
+                    const Text('Término:', style: TextStyle(fontSize: 15)),
                     Text(
-                      DateFormat('dd/MM/yyyy')
-                          .format(item['semanas'][51]['data']),
-                      style: const TextStyle(
-                        fontSize: 15,
-                      ),
+                      DateFormat(
+                        'dd/MM/yyyy',
+                      ).format(item['semanas'][51]['data']),
+                      style: const TextStyle(fontSize: 15),
                     ),
                   ],
                 ),

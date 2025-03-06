@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -15,8 +15,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
-    final _store = Provider.of<ObjetivosModel>(context, listen: false);
-    _store.loadDb();
+    final store = Provider.of<ObjetivosModel>(context, listen: false);
+    store.loadDb();
 
     AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
       if (!isAllowed) {
@@ -44,10 +44,7 @@ class _HomeState extends State<Home> {
           Navigator.pushNamed(context, '/novo_objetivo');
         },
         backgroundColor: const Color(0xFFf5a91f),
-        child: const Icon(
-          Icons.add,
-          color: Colors.purple,
-        ),
+        child: const Icon(Icons.add, color: Colors.purple),
       ),
     );
   }

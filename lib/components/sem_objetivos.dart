@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class SemObjetivos extends StatelessWidget {
-  const SemObjetivos({Key? key}) : super(key: key);
+  const SemObjetivos({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +34,7 @@ class SemObjetivos extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             // const Image(
             //   image: AssetImage(
             //     'images/home.png',
@@ -54,9 +52,7 @@ class SemObjetivos extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 6,
-            ),
+            const SizedBox(height: 6),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [

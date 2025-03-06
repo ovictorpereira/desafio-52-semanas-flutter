@@ -55,7 +55,10 @@ class ObjetivosModel extends ChangeNotifier {
     notifyListeners();
     updateDb();
     Notificacao().grupoNotificacaoSemanas(
-        item['idNotifications'], item['semanas'], item['titulo']);
+      item['idNotifications'],
+      item['semanas'],
+      item['titulo'],
+    );
   }
 
   void alteraSemanaRealizada(bool? valor, int indexObjetivo, int indexSemana) {
@@ -66,7 +69,7 @@ class ObjetivosModel extends ChangeNotifier {
 
   void excluiObjetivo(int indexObjetivo) {
     Notificacao().cancelaGrupo(objetivos[indexObjetivo]['idNotifications']);
-    var timer = Timer(const Duration(milliseconds: 200), () {
+    Timer(const Duration(milliseconds: 200), () {
       _objetivos.removeAt(indexObjetivo);
       notifyListeners();
       updateDb();

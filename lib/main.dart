@@ -13,18 +13,15 @@ import 'package:provider/provider.dart';
 
 void main() async {
   await Hive.initFlutter();
-  var box = await Hive.openBox('database');
+  await Hive.openBox('database');
 
-  AwesomeNotifications().initialize(
-      null,
-      [
-        NotificationChannel(
-          channelKey: 'lembrete',
-          channelName: 'Lembrete Depositos',
-          channelDescription: 'Lembrete para realização do depósito semanal',
-        )
-      ],
-      debug: false);
+  AwesomeNotifications().initialize(null, [
+    NotificationChannel(
+      channelKey: 'lembrete',
+      channelName: 'Lembrete Depositos',
+      channelDescription: 'Lembrete para realização do depósito semanal',
+    ),
+  ], debug: false);
 
   runApp(
     ChangeNotifierProvider(
@@ -35,7 +32,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,18 +43,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         inputDecorationTheme: kInputDecoration,
         appBarTheme: kAppBar,
-        textTheme: GoogleFonts.quicksandTextTheme(
-          Theme.of(context).textTheme,
-        ),
+        textTheme: GoogleFonts.quicksandTextTheme(Theme.of(context).textTheme),
       ),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      supportedLocales: const [
-        Locale('en'),
-        Locale('pt', 'BR'),
-      ],
+      supportedLocales: const [Locale('en'), Locale('pt', 'BR')],
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
