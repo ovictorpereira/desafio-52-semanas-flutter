@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="desafio_52_semanas"
+        android:label="52 Semanas - Guarde Dinheiro"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
